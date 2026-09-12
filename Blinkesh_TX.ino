@@ -1,59 +1,48 @@
-// AirDrop (Temu Edition) - LIVE CHAT SENDER
-const int lightPin = 4;       // Connect your LED/Bulb to GPIO 4
-const int bitDelay = 200;     // 200ms per bit. 
+// SENDER CODE v2.0 (Now with Wake-Up Slap)
+const int lightPin = 4;       
+const int bitDelay = 200;     
 
 void setup() {
   pinMode(lightPin, OUTPUT);
   Serial.begin(115200);
   delay(1000); 
-  
-  Serial.println("\n==========================================");
-  Serial.println("   AIRDROP (TEMU EDITION) - ONLINE");
-  Serial.println("==========================================");
-  Serial.println("Type your message in the box above and hit Enter to flash-bang it...");
+  Serial.println("\n[SENDER ONLINE] Type message and press Enter...");
 }
 
 void loop() {
-  // Check if you typed something in the Serial Monitor
   if (Serial.available() > 0) {
-    // Read the text until you hit Enter
     String message = Serial.readStringUntil('\n');
-    message.trim(); // Cleans up invisible newline characters that mess up the data
+    message.trim(); 
 
     if (message.length() > 0) {
       Serial.println("\n[TRANSMITTING]: " + message);
 
-      // Loop through every single letter in your text
       for (int i = 0; i < message.length(); i++) {
         char currentChar = message[i];
-        
-        Serial.print("Sending '");
-        Serial.print(currentChar);
-        Serial.print("' -> ");
+        Serial.print("Sending '"); Serial.print(currentChar); Serial.print("' -> ");
 
-        // Loop through the 8 bits of the character (from left to right)
+        // 🚨 THE WAKE-UP SLAP (START BIT) 🚨
+        digitalWrite(lightPin, HIGH);
+        delay(bitDelay); 
+
+        // Send the 8 data bits
         for (int b = 7; b >= 0; b--) {
-          int currentBit = (currentChar >> b) & 1; // Math magic to extract the exact bit
-          
+          int currentBit = (currentChar >> b) & 1; 
           if (currentBit == 1) {
-            digitalWrite(lightPin, HIGH); 
-            Serial.print("1");
+            digitalWrite(lightPin, HIGH); Serial.print("1");
           } else {
-            digitalWrite(lightPin, LOW);  
-            Serial.print("0");
+            digitalWrite(lightPin, LOW);  Serial.print("0");
           }
-          
           delay(bitDelay); 
         }
         
         Serial.println(); 
         
-        // Turn the light off and pause for a second between letters
+        // Turn light off and pause before the next letter
         digitalWrite(lightPin, LOW); 
         delay(bitDelay * 3); 
       }
-      
-      Serial.println("[DONE] Awaiting next message...\n");
+      Serial.println("[DONE]\n");
     }
   }
 }
