@@ -10,37 +10,36 @@
 
 
 ### Team Members
-- Team Lead: Joe George James - Saintgits College of Engineering
+- Member 1: Joe George James - Saintgits College of Engineering
 - Member 2: Reuben Mathew Thomas - Saintgits College of Engineering
 
 
 ### Project Description
-A system that transmits files using light - absolutely unasked. 
+Uh so, basically reinvented fiber optics but made it infinitely worse. We take a tiny 5x5 pixel image (or any file for that matter), mash it into 1s and 0s, and violently blink a flashlight at a cheap LDR sensor hiding inside a darker chamber or hollowed-out pen tube. It takes a solid 20 seconds to transmit a single low-res smiley face. If someone sneezes, breathes too hard, or walks past the table, this entire JPEG/file is sent to the shadow realm. x_x 
 
 ### The Problem (that doesn't exist)
-Why would anyone even use Light to receive files, keep in mind, this isn't exactly optical fiber either.
-This awfully takes too long, almost 38 days to transmit a 2MB JPEG.
+Brudda, imagine this - you send data over WiFi, no drama, no suspense.
+bruh.
+And also, apparently BT/WiFi uses invisible Radio Waves, but how can you be sure? (Source: Pep Guardiola's Hair ahh moment).
+Scratch allat, I need to physically see my bits.
 
 ### The Solution (that nobody asked for)
-So uh, we've come up with a device that can basically transmit a file by converting it into binary, and when theres 1, a flashlight is illuminated, and remains unlit when its 0.
-This is then received at receiver end using 
+Blinkesh is basically optical flash banging. By manually flashing a light on for "1" and turning it off for "0", you can literally stare at your data as it slowly crawls across the room at mind-numbing speeds.
 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
+- [Languages used] - C++
+- [Libraries used] - ESP32 Dev Kit by Espresstif
+- [Tools used] - Desperation
 
 For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
+- ESP32, Flashlight, LDR Sensor, Resistor
+- [Tools used] - Sheer willpower
 
 ### Implementation
 For Software:
-# Installation
+Arduino ide
 [commands]
 
 # Run
