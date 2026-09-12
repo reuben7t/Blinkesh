@@ -1,4 +1,4 @@
-// RECEIVER CODE v2.2 (Inverted Logic for Pull-Down LDR Modules)
+// RECEIVER CODE v2.3 (Mid-Bit Sampling & Alignment Fix)
 const int ldrPin = 34;         // AO pin from 4-pin LDR module connected to GPIO 34
 const int threshold = 1500;    // Threshold set between ambient (2000+) and flash (0-500)
 const int bitDelay = 200;      // Must match sender's bitDelay
@@ -6,13 +6,13 @@ const int bitDelay = 200;      // Must match sender's bitDelay
 void setup() {
   Serial.begin(115200);
   delay(2000);
-  Serial.println("\n[RECEIVER READY v2.2] Waiting for OptiGlitch transmission...");
+  Serial.println("\n[RECEIVER READY v2.3] Waiting for OptiGlitch transmission...");
 }
 
 void loop() {
   int val = analogRead(ldrPin);
 
-  // 1. DETECT THE WAKE-UP SLAP (Start Bit: Light turns ON, so value DROPS below threshold)
+  // 1. DETECT THE WAKE-UP SLAP (Start Bit drops below threshold)
   if (val < threshold) {
     String fullSentence = "";
     Serial.println("\n--- Incoming Transmission Started ---");
@@ -20,10 +20,11 @@ void loop() {
     while (true) {
       char currentByte = 0;
 
-      // Wait out the remainder of the 200ms start bit so we align precisely
-      delay(bitDelay);
+      // CRITICAL FIX: Instead of waiting a full bitDelay, wait 1.5x bitDelay (300ms).
+      // This skips the edge and puts us right in the dead-center of Bit 7!
+      delay(bitDelay + (bitDelay / 2));
 
-      // 2. READ THE 8 DATA BITS (Bit 7 down to Bit 0)
+      // 2. READ THE 8 DATA BITS (Bit 7 down to Bit 0) at the center of each window
       for (int b = 7; b >= 0; b--) {
         int bitVal = analogRead(ldrPin);
         
@@ -31,7 +32,11 @@ void loop() {
         if (bitVal < threshold) {
           currentByte |= (1 << b);  
         }
-        delay(bitDelay);            // Wait for the next bit slot
+        
+        // Wait for the next bit window center (only needed for bits 7 down to 1)
+        if (b > 0) {
+          delay(bitDelay);
+        }
       }
 
       // 3. DISPLAY LETTER BY LETTER IMMEDIATELY
@@ -45,7 +50,7 @@ void loop() {
         delay(5);
       }
 
-      // Now, listen for the NEXT character's wake-up slap (value drops below threshold)
+      // Now, listen for the NEXT character's wake-up slap
       unsigned long startTimeout = millis();
       bool nextCharIncoming = false;
 
