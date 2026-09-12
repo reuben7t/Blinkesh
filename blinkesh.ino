@@ -26,3 +26,4 @@ void loop() {
   // Wait half a second before taking the next reading
   delay(500);
 }
+
