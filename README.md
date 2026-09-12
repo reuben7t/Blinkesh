@@ -2,26 +2,28 @@
 
 
 
-# [Project Name] 🎯
+# Blinkesh 🎯
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: Radiants
 
 
 ### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Team Lead: Joe George James - Saintgits College of Engineering
+- Member 2: Reuben Mathew Thomas - Saintgits College of Engineering
+
 
 ### Project Description
-[2-3 lines about what your project does]
+A system that transmits files using light - absolutely unasked. 
 
 ### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+Why would anyone even use Light to receive files, keep in mind, this isn't exactly optical fiber either.
+This awfully takes too long, almost 38 days to transmit a 2MB JPEG.
 
 ### The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+So uh, we've come up with a device that can basically transmit a file by converting it into binary, and when theres 1, a flashlight is illuminated, and remains unlit when its 0.
+This is then received at receiver end using 
 
 ## Technical Details
 ### Technologies/Components Used
