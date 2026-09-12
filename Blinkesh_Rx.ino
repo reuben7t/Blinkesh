@@ -1,48 +1,70 @@
-// RECEIVER CODE (The Decoder)
-const int ldrPin = 34;        // LDR AO pin connected to D34
-const int bitDelay = 200;     // MUST strictly match the sender
-
-// 🚨 CALIBRATION NEEDED: ESP32 analog reads from 0 (pitch black) to 4095 (blinding bright). 
-// 2000 is usually a safe middle ground, but you might need to change this!
-const int threshold = 2000;   
+// RECEIVER CODE v2.1 (Fixed Synchronization & Timing)
+const int ldrPin = 34;         // AO pin from 4-pin LDR module connected to GPIO 34
+const int threshold = 2500;    // Light threshold (Adjust using the blue potentiometer!)
+const int bitDelay = 200;      // Must match sender's bitDelay
 
 void setup() {
   Serial.begin(115200);
-  pinMode(ldrPin, INPUT);
-  delay(1000);
-  Serial.println("\n==========================================");
-  Serial.println("  RECEIVER ONLINE - WAITING FOR FLASHES");
-  Serial.println("==========================================");
+  delay(2000);
+  Serial.println("\n[RECEIVER READY v2.1] Waiting for OptiGlitch transmission...");
 }
 
 void loop() {
-  int lightLevel = analogRead(ldrPin);
-  
-  // Step 1: Did the light just turn on? (The Wake-Up Slap)
-  if (lightLevel > threshold) {
-    
-    char receivedChar = 0; // Empty container for our 8 bits
-    
-    // Step 2: Skip the Start Bit, plus wait half a cycle more 
-    // so we sample precisely in the middle of the first actual data bit.
-    delay(bitDelay + (bitDelay / 2)); 
+  int val = analogRead(ldrPin);
 
-    // Step 3: Run the stopwatch and read 8 times
-    for (int b = 7; b >= 0; b--) {
-      lightLevel = analogRead(ldrPin); // Check light level
-      
-      if (lightLevel > threshold) {
-        receivedChar |= (1 << b); // Force that specific bit to be a 1
-      }
-      
-      // Wait exactly 1 cycle for the next bit
+  // 1. DETECT THE WAKE-UP SLAP (Start Bit goes HIGH)
+  if (val > threshold) {
+    String fullSentence = "";
+    Serial.println("\n--- Incoming Transmission Started ---");
+
+    while (true) {
+      char currentByte = 0;
+
+      // Wait out the remainder of the 200ms start bit so we align precisely
       delay(bitDelay);
+
+      // 2. READ THE 8 DATA BITS (Bit 7 down to Bit 0)
+      for (int b = 7; b >= 0; b--) {
+        int bitVal = analogRead(ldrPin);
+        if (bitVal > threshold) {
+          currentByte |= (1 << b);  // It's a 1
+        }
+        delay(bitDelay);            // Wait for the next bit slot
+      }
+
+      // 3. DISPLAY LETTER BY LETTER IMMEDIATELY
+      Serial.print(currentByte);
+      fullSentence += currentByte;
+
+      // 4. CLEAN SYNC FOR THE NEXT CHARACTER
+      // Sender pauses for (bitDelay * 3) = 600ms with light LOW.
+      // Let's wait for the current light to drop LOW (end of data transmission)
+      unsigned long dropTimeout = millis();
+      while (analogRead(ldrPin) > threshold && millis() - dropTimeout < 500) {
+        delay(5);
+      }
+
+      // Now, listen for the NEXT character's wake-up slap (transition from LOW to HIGH)
+      unsigned long startTimeout = millis();
+      bool nextCharIncoming = false;
+
+      while (millis() - startTimeout < 1500) { // 1.5 second window to look for next letter
+        if (analogRead(ldrPin) > threshold) {
+          nextCharIncoming = true;
+          break; // Caught the exact start of the next wake-up slap!
+        }
+        delay(5);
+      }
+
+      // If no new wake-up slap appeared within the window, the message has ended
+      if (!nextCharIncoming) {
+        break;
+      }
     }
-    
-    // Step 4: We got all 8 bits! Print it instantly.
-    Serial.print(receivedChar);
-    
-    // Wait for the sender's pause gap to finish so we don't accidentally double-read
-    delay(bitDelay * 2); 
+
+    // 5. DISPLAY THE WHOLE SENTENCE AT THE END
+    Serial.println("\n----------------------------------------");
+    Serial.println("Full Sentence Received: " + fullSentence);
+    Serial.println("----------------------------------------\n");
   }
 }
