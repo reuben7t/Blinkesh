@@ -15,13 +15,10 @@
 
 
 ### Project Description
-Uh so, basically reinvented fiber optics but made it infinitely worse. We take a tiny 5x5 pixel image (or any file for that matter), mash it into 1s and 0s, and violently blink a flashlight at a cheap LDR sensor hiding inside a darker chamber or hollowed-out pen tube. It takes a solid 20 seconds to transmit a single low-res smiley face. If someone sneezes, breathes too hard, or walks past the table, this entire JPEG/file is sent to the shadow realm. x_x 
+A device that converts the input file or text or anything to their binary and uses an led to transmit it. A receiver on the other with an LDR detects the sequence of 1 and 0 and reconstructs it into the corresponding message at Receiver's end.
 
 ### The Problem (that doesn't exist)
-Imagine this - you send data over WiFi, no drama, no suspense.
-bruh.
-And also, apparently BT/WiFi uses invisible Radio Waves, but how can you be sure? (Source: Pep Guardiola's Hair ahh moment).
-Scratch allat, I need to physically see my bits.
+Nowadays, sending a message is insanely fast and we have different mediums for it too. But, what if we try a new method? using visible light as a medium? and no we are not talking about optical fibre or any of that usual things. We are talking a torch LED that blinks according to the 1s and 0s and a receiver that detects it converts it back to the original message. In short, an unusual, slow and visibly funny way to communicate.   
 
 ### The Solution (that nobody asked for)
 Blinkesh is basically optical flash banging. By manually flashing a light on for "1" and turning it off for "0", you can literally stare at your data as it slowly crawls across the room at mind-numbing speeds.
@@ -31,30 +28,35 @@ Blinkesh is basically optical flash banging. By manually flashing a light on for
 For Software:
 - [Languages used] - C++
 - [Libraries used] - ESP32 Dev Kit by Espressif
-- [Tools used] - Desperation
+- [Tools used] -
 
 For Hardware:
-- ESP32, Flashlight, LDR Sensor, Resistor
-- [Tools used] - Sheer willpower
+- ESP32
+- Flashlight
+- LDR Sensor
+- Resistor
 
 ### Implementation
 For Software:
-Arduino IDE/Visual Studio with PlatformIO
+- Arduino IDE
+- Visual Studio with PlatformIO
 
 [commands]
--Flash sender.ino to the transmitting ESP32 and receiver.ino to the receiving ESP32.
+-Flash Blinkesh_TX.ino to the transmitting ESP32 and Blinkesh_Rx.ino to the receiving ESP32.
 
 -Open two separate Serial Monitors (Baud rate 115200, Line Ending set to Newline).
 
 -Type a message into the Sender's Serial Monitor and hit Enter.
 
--Watch the flashlight aggressively strobe and the text slowly reconstruct on the Receiver's monitor.
-
--Cheat code: Type /smiley to transmit a hardcoded 5x5 ASCII image.
+-Watch the flashlight strobe and the text slowly reconstruct on the Receiver's monitor.
 
 
 # Run
+[commands]
+
 ### Project Documentation
+For Software:
+
 # Screenshots 
 <img width="1917" height="1078" alt="image" src="https://github.com/user-attachments/assets/40bc27ae-78cc-49ea-95d2-7a83a5228c95" />
 Transmitter (Tx) side serial monitor.
@@ -76,19 +78,25 @@ For Hardware:
 *Add caption explaining the schematic*
 
 # Build Photos
-![Components](Add photo of your components here)
-*List out all components shown*
+![Components]
+<img width="960" height="1280" alt="Esp32 with LDR sensor" src="https://github.com/user-attachments/assets/d49337c9-ad29-466a-b7db-e504e05935b3" />
+ESP 32 with LDR Sensor (Receiver side)
 
-![Build](Add photos of build process here)
-*Explain the build steps*
+![Build]<img width="960" height="1280" alt="Esp32 with LED" src="https://github.com/user-attachments/assets/6deab62b-618a-428e-8634-7deca564ebbe" />
+ESP 32 with LED light (Transmitter side) 
 
-![Final](Add photo of final product here)
-*Explain the final build*
+![Final]
+<img width="1280" height="960" alt="WhatsApp Image 2026-09-13 at 9 39 11 AM (1)" src="https://github.com/user-attachments/assets/bb959eda-7967-4dce-8797-5cd35e182288" />
+
+The Transmitter side on the left converts the input to binary and blinks the LED in respect to the binary sequence. The Receiver side on the left converts the sequence back to the original message and displays it.
 
 ### Project Demo
 # Video
-[Add your demo video link here]
-This video demonstrates the working of Blinkesh using OOK (On Off Keying), which is a file transfer system developed using light transfer, basically a cheaply reverse engineered version of LiFi (Light Fidelity).
+
+
+https://github.com/user-attachments/assets/216a6dd6-2df5-421e-af4f-54ca1ba06b06
+
+
 
 
 ## Team Contributions
