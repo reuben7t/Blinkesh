@@ -18,10 +18,10 @@
 A device that converts the input file or text or anything to their binary and uses an led to transmit it. A receiver on the other with an LDR detects the sequence of 1 and 0 and reconstructs it into the corresponding message at Receiver's end.
 
 ### The Problem (that doesn't exist)
-Nowadays, sending a message is insanely fast and we have different mediums for it too. But, what if we try a new method? using visible light as a medium? and no we are not talking about optical fibre or any of that usual things.   
+Nowadays, sending a message is insanely fast and we have different mediums for it too. But, what if we try a new method? using visible light as a medium? and no we are not talking about optical fibre or any of that usual boring things.   
 
 ### The Solution (that nobody asked for)
-We are talking a torch LED that blinks according to the 1s and 0s and a receiver that detects it converts it back to the original message. In short, an unusual, slow and visibly funny way to communicate. 
+We are talking a torch LED that blinks according to the 1s and 0s and a receiver that detects it converts it back to the original message. In short, an unusual, slow and visibly funny way to communicate. Also, wouldn't it be good to make sure your message is being transmitted by actually seeing it and not some screen telling you it did.
 
 ## Technical Details
 ### Technologies/Components Used
