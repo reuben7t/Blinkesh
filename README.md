@@ -69,11 +69,9 @@ Figure: System architecture for text communication using light, where data is tr
 For Hardware:
 
 # Schematic & Circuit
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
 
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
+![Schematic]<img width="1414" height="2000" alt="Schematic Diagram" src="https://github.com/user-attachments/assets/d2b901bc-7480-48d7-bf1c-ea1d53378e07" />
+Rx side has a LDR sensor connected to esp32 and Tx side has a LED connected to an esp32
 
 # Build Photos
 [Components]
