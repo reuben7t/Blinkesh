@@ -30,7 +30,7 @@ Blinkesh is basically optical flash banging. By manually flashing a light on for
 ### Technologies/Components Used
 For Software:
 - [Languages used] - C++
-- [Libraries used] - ESP32 Dev Kit by Espresstif
+- [Libraries used] - ESP32 Dev Kit by Espressif
 - [Tools used] - Desperation
 
 For Hardware:
@@ -39,8 +39,15 @@ For Hardware:
 
 ### Implementation
 For Software:
-Arduino ide
+Arduino IDE/Visual Studio with PlatformIO
+
 [commands]
+-Flash sender.ino to the transmitting ESP32 and receiver.ino to the receiving ESP32.
+-Open two separate Serial Monitors (Baud rate 115200, Line Ending set to Newline).
+-Type a message into the Sender's Serial Monitor and hit Enter.
+-Watch the flashlight aggressively strobe and the text slowly reconstruct on the Receiver's monitor.
+-Cheat code: Type /smiley to transmit a hardcoded 5x5 ASCII image.
+
 
 # Run
 [commands]
@@ -48,7 +55,10 @@ Arduino ide
 ### Project Documentation
 For Software:
 
-# Screenshots (Add at least 3)
+# Screenshots 
+<img width="1917" height="1078" alt="image" src="https://github.com/user-attachments/assets/40bc27ae-78cc-49ea-95d2-7a83a5228c95" />
+Transmitter (Tx) side serial monitor.
+
 ![Screenshot1](Add screenshot 1 here with proper name)
 *Add caption explaining what this shows*
 
