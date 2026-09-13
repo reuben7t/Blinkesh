@@ -18,7 +18,7 @@
 Uh so, basically reinvented fiber optics but made it infinitely worse. We take a tiny 5x5 pixel image (or any file for that matter), mash it into 1s and 0s, and violently blink a flashlight at a cheap LDR sensor hiding inside a darker chamber or hollowed-out pen tube. It takes a solid 20 seconds to transmit a single low-res smiley face. If someone sneezes, breathes too hard, or walks past the table, this entire JPEG/file is sent to the shadow realm. x_x 
 
 ### The Problem (that doesn't exist)
-Brudda, imagine this - you send data over WiFi, no drama, no suspense.
+Imagine this - you send data over WiFi, no drama, no suspense.
 bruh.
 And also, apparently BT/WiFi uses invisible Radio Waves, but how can you be sure? (Source: Pep Guardiola's Hair ahh moment).
 Scratch allat, I need to physically see my bits.
@@ -54,11 +54,7 @@ Arduino IDE/Visual Studio with PlatformIO
 
 
 # Run
-[commands]
-
 ### Project Documentation
-For Software:
-
 # Screenshots 
 <img width="1917" height="1078" alt="image" src="https://github.com/user-attachments/assets/40bc27ae-78cc-49ea-95d2-7a83a5228c95" />
 Transmitter (Tx) side serial monitor.
