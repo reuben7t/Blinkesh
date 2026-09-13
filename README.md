@@ -43,9 +43,13 @@ Arduino IDE/Visual Studio with PlatformIO
 
 [commands]
 -Flash sender.ino to the transmitting ESP32 and receiver.ino to the receiving ESP32.
+
 -Open two separate Serial Monitors (Baud rate 115200, Line Ending set to Newline).
+
 -Type a message into the Sender's Serial Monitor and hit Enter.
+
 -Watch the flashlight aggressively strobe and the text slowly reconstruct on the Receiver's monitor.
+
 -Cheat code: Type /smiley to transmit a hardcoded 5x5 ASCII image.
 
 
@@ -63,8 +67,8 @@ Transmitter (Tx) side serial monitor.
 Receiver (Rx) side serial monitor
 
 # Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
+<img width="1650" height="655" alt="image" src="https://github.com/user-attachments/assets/86b53e1a-b46b-43e7-a1c9-b49e08186b88" />
+Figure: System architecture for text communication using light, where data is transmitted from Laptop 1 to Laptop 2 through an ESP32-controlled flashlight and LDR-based optical link.
 
 For Hardware:
 
