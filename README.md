@@ -18,17 +18,16 @@
 A device that converts the input file or text or anything to their binary and uses an led to transmit it. A receiver on the other with an LDR detects the sequence of 1 and 0 and reconstructs it into the corresponding message at Receiver's end.
 
 ### The Problem (that doesn't exist)
-Nowadays, sending a message is insanely fast and we have different mediums for it too. But, what if we try a new method? using visible light as a medium? and no we are not talking about optical fibre or any of that usual things. We are talking a torch LED that blinks according to the 1s and 0s and a receiver that detects it converts it back to the original message. In short, an unusual, slow and visibly funny way to communicate.   
+Nowadays, sending a message is insanely fast and we have different mediums for it too. But, what if we try a new method? using visible light as a medium? and no we are not talking about optical fibre or any of that usual things.   
 
 ### The Solution (that nobody asked for)
-Blinkesh is basically optical flash banging. By manually flashing a light on for "1" and turning it off for "0", you can literally stare at your data as it slowly crawls across the room at mind-numbing speeds.
+We are talking a torch LED that blinks according to the 1s and 0s and a receiver that detects it converts it back to the original message. In short, an unusual, slow and visibly funny way to communicate. 
 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
 - [Languages used] - C++
 - [Libraries used] - ESP32 Dev Kit by Espressif
-- [Tools used] -
 
 For Hardware:
 - ESP32
@@ -42,6 +41,7 @@ For Software:
 - Visual Studio with PlatformIO
 
 [commands]
+
 -Flash Blinkesh_TX.ino to the transmitting ESP32 and Blinkesh_Rx.ino to the receiving ESP32.
 
 -Open two separate Serial Monitors (Baud rate 115200, Line Ending set to Newline).
@@ -52,10 +52,8 @@ For Software:
 
 
 # Run
-[commands]
 
 ### Project Documentation
-For Software:
 
 # Screenshots 
 <img width="1917" height="1078" alt="image" src="https://github.com/user-attachments/assets/40bc27ae-78cc-49ea-95d2-7a83a5228c95" />
