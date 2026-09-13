@@ -62,8 +62,9 @@ Transmitter (Tx) side serial monitor.
 ![Screenshot1](Add screenshot 1 here with proper name)
 *Add caption explaining what this shows*
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot2]
+<img width="1002" height="575" alt="Rx Side Serial Monitor" src="https://github.com/user-attachments/assets/2c40e735-e6c3-495d-a2b8-8038eb37654c" />
+Receiver (Rx) side serial monitor
 
 ![Screenshot3](Add screenshot 3 here with proper name)
 *Add caption explaining what this shows*
