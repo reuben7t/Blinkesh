@@ -76,10 +76,12 @@ Rx side has a LDR sensor connected to esp32 and Tx side has a LED connected to a
 # Build Photos
 [Components]
 <img width="960" height="1280" alt="Esp32 with LDR sensor" src="https://github.com/user-attachments/assets/d49337c9-ad29-466a-b7db-e504e05935b3" />
+
 ESP 32 with LDR Sensor (Receiver side)
 
 <img width="960" height="1280" alt="Esp32 with LED" src="https://github.com/user-attachments/assets/6deab62b-618a-428e-8634-7deca564ebbe" />
 ESP 32 with LED light (Transmitter side) 
+
 
 [Final]
 <img width="1280" height="960" alt="WhatsApp Image 2026-09-13 at 9 39 11 AM (1)" src="https://github.com/user-attachments/assets/bb959eda-7967-4dce-8797-5cd35e182288" />
