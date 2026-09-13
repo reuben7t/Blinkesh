@@ -92,15 +92,12 @@ For Hardware:
 ### Project Demo
 # Video
 [Add your demo video link here]
-*Explain what the video demonstrates*
+This video demonstrates the working of Blinkesh using OOK (On Off Keying), which is a file transfer system developed using light transfer, basically a cheaply reverse engineered version of LiFi (Light Fidelity).
 
-# Additional Demos
-[Add any extra demo materials/links]
 
 ## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+- Joe George James: Hardware & Software + Emotional, Moral, Mental Support
+- Reuben Mathew Thomas: Hardware & Software + Emotional, Moral, Mental Support
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 
